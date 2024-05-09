@@ -1,0 +1,225 @@
+body{
+    background-color: hsl(0, 0%, 94%);
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#main_container{
+    height: 386px;
+    width: 450px;
+    background-color: white;
+    border-radius: 20px;
+    border-bottom-right-radius: 30%;
+    padding: 30px;
+}
+.days_heading{
+        font-family: "Poppins", sans-serif;
+       font-size: 11px;
+        color: hsl(0, 0%, 86%); 
+       color: hsl(0, 1%, 44%);
+       font-weight:  600;
+       margin: 0px; 
+       margin-bottom: 4px;
+}
+#main_container div{
+    justify-content: space-between;
+ }
+#dates_input{
+    display: grid;
+    grid-template-columns: 100px 100px 200px;
+    grid-template-rows: 35px 35px;
+     padding-bottom: 0px;
+}
+input{
+    width: 80px;
+    padding-left: 10px;
+    height: 37px;
+    border: 1px solid hsl(0, 0%, 86%);
+    outline: none;
+    border-radius: 5px;
+    font-size: 16px;
+     color: black;
+    font-weight: 550;
+}
+input:hover{
+    border: 1px solid hsl(259, 100%, 65%);
+    cursor: pointer;
+}
+.form{
+     width: 448px;
+}
+#hr_line{
+     display: grid;
+    grid-template-columns:  381px 69px;
+    align-items: center;
+}
+#arrow_img{
+    border-radius: 50%;
+    background-color: hsl(259, 100%, 65%);
+    padding: 10px;
+ }
+ #btn_1st{
+     border: none;
+     border-radius: 50%;
+ }
+#arrow_img:hover{
+    background-color: black;
+    cursor: pointer;
+}
+#user_age{
+    display: grid;
+     grid-template-columns: 75px 375px;
+    grid-template-rows: 75px 75px 95px;
+}
+.cal_age{
+    color: hsl(259, 100%, 65%);
+    font-size: 56px ;
+    margin: 0px;
+    font-style: oblique;
+     font-weight: 900;
+}
+#error1{
+    color: red;
+    font-size: 7px;
+    margin: 0px;
+    display: none;
+}
+#error2{
+    color: red;
+    font-size: 7px;
+    margin: 0px;
+    display: none;
+}
+#error3{
+    color: red;
+    font-size: 7px;
+    margin: 0px;
+    display: none;
+}
+#y_color{
+    color: black;
+}
+#m_color{
+    color: black;
+}
+#d_color{
+    color: black;
+}
+
+@media ( max-width:550px){
+ body{
+    background-color: black;
+ }
+ #hr_line{
+    display: block;
+     align-items: center;
+ }
+#arrow_img{
+      position: relative;
+    /* bottom: 3px; */
+    /* left: 3rem; */
+}
+#btn_1st{
+    border: none;
+    border-radius: 50%;
+    position: relative;
+    bottom: 35px;
+    left: 7rem;
+    /* display: none; */
+}
+#horizontal{
+    margin-top: 65px;
+    margin-bottom: 0px;
+    padding: 0px;
+}
+#main_container{
+    width: 300px;
+}
+#dates_input{
+    grid-template-columns: 18px 18px 96px;
+    width: 300px;
+}
+#user_age{
+    grid-template-columns: 76px 224px ;
+    grid-template-rows: 57px 53px 67px;
+ }
+.cal_age{
+    font-size: 40px;
+}
+.form{
+     width: 300px;
+}
+}
+
+@media ( max-width:380px){
+    body{
+       background-color: black;
+    }
+    #hr_line{
+       display: block;
+        align-items: center;
+    }
+   #arrow_img{
+        position: relative;
+   }
+   #btn_1st{
+    border: none;
+    border-radius: 50%;
+    position: relative;
+    bottom: 35px;
+    left: 4.3rem;
+}
+   #horizontal{
+       margin-top: 65px;
+       margin-bottom: 0px;
+       padding: 0px;
+   }
+   #main_container{
+       width: 206px;
+       border-bottom-right-radius: 90px;
+   }
+   #dates_input{
+       grid-template-columns: 0px 0px 57px;
+       width: 205px;
+   }
+   #user_age{
+       grid-template-columns: 53px 153px ;
+       grid-template-rows: 51px 47px 59px;
+    }
+   .cal_age{
+       font-size: 35px;
+   }
+   .form{
+        width: 205px;
+   }
+   .form_input{
+     width: 48px;
+   }
+ 
+   /* #error1{
+    color: red;
+    font-size: 6px;
+    margin: 0px;
+    display: none;
+}
+#error2{
+    color: red;
+    font-size:5px;
+    margin: 0px;
+    display: none;
+}
+#error3{
+    color: red;
+    font-size: 6px;
+    margin: 0px;
+    display: none;
+} */
+}
+   @media (max-width: 250px)
+   {
+    #main_container{
+        padding-top: 132px;
+    }
+   }

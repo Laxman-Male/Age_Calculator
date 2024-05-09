@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Age Calculator </title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+<body>
+    <div id="main_container">
+        <form class="form">
+            <div id="dates_input">
+                <div>
+                    <p class="days_heading" id="input_days_p"> DAY </p>
+                    <input type="number" placeholder="DD" class="form_input" id="InputDays">
+                    <p class="error_msg" id="error1"> Must be a valid day </p>
+                </div>
+                <div>
+                    <p class="days_heading" id="input_month_p"> MONTH </p>
+                    <input type="number" placeholder="MM" class="form_input" id="InputMonths">
+                    <p class="error_msg" id="error2"> Must be a valid month</p>
+                </div>
+                <div>
+                    <p class="days_heading" id="input_year_p"> YEAR </p>
+                    <input type="number" placeholder="YYYY" class="form_input" id="InputYears">
+                    <p class="error_msg" id="error3"> Must be in past </p>
+                </div>
+            </div>
+        </form>
+        <div id="hr_line">
+            <div>
+                <hr id="horizontal">
+            </div>
+            <div>
+                <button id="btn_1st">
+                    <img src="icon-arrow.svg" alt="arrow_img" id="arrow_img">
+                </button>
+            </div>
+        </div>
+        <div id="user_age">
+            <div>
+                <p class="cal_age" id="calculated_year">- -</p>
+                <p class="cal_age" id="calculated_month">- -</p>
+                <p class="cal_age" id="calculated_day"> - -</p>
+            </div>
+            <div>
+                <p class="cal_age" id="y_color"> years </p>
+                <p class="cal_age" id="m_color"> months </p>
+                <p class="cal_age" id="d_color"> days </p>
+            </div>
+        </div>
+    </div>
+    <script src="index.js" type="module"> </script>
+</body>
+</html>

@@ -15,11 +15,40 @@ let cal_yr = document.getElementById("calculated_year")
 let cal_mn = document.getElementById("calculated_month")
 let cal_ds = document.getElementById("calculated_day")
 let btn = document.getElementById("btn_1st");
-btn.addEventListener("click",  () => {
-    if (inputDays.value <= 31 && inputDays.value >= 1) {
-        console.log(" days" + inputDays.value)
+inputDays.addEventListener('input', () => {
+    if (inputDays.value.length === 2) {  
+        inputMonth.focus();  
     }
-    else if (inputDays.value === "") {
+});
+
+inputMonth.addEventListener('input', () => {
+    if (inputMonth.value.length === 2) {  
+        inputYear.focus();  
+    }
+});
+
+inputYear.addEventListener('input', () => {
+    if (inputYear.value.length === 0) {  
+        inputMonth.focus(); 
+    }
+});
+
+inputMonth.addEventListener('input', () => {
+    if (inputMonth.value.length === 0) {  
+        inputDays.focus();  
+    }
+});
+
+btn.addEventListener("click",  () => {
+    if_error=0;
+    let daysInput = parseInt(inputDays.value);
+    let monthInput = parseInt(inputMonth.value) - 1;  
+    let yearInput= parseInt(inputYear.value);
+
+    if (daysInput <= 31 && daysInput >= 1) {
+        console.log(" days" + daysInput)
+    }
+    else if (daysInput === "") {
         console.log("blank 1")
         error1.style.display = "block"
         error1.innerText = "This field is required"
@@ -37,19 +66,19 @@ btn.addEventListener("click",  () => {
     }
 
     let loop_days = document.createElement("option");
-    let i = inputMonth.value
+    let i = monthInput
     //  i=month and loop_days=days in month
     loop_days.innerText = daysInMonth[i];
     let leap_day;
     let leap_month;
     // console.log("month--", i)
     // console.log("days--", loop_days.value)
-    if (inputMonth.value <= 12 && inputMonth.value >= 1) {
+    if (monthInput <= 12 && monthInput >= 1) {
 
-        if (inputDays.value == 29 && inputMonth.value == 2) {
-            if (inputYear.value % 4 === 0) {
-                leap_day = inputDays.value
-                leap_month = inputMonth.value
+        if (daysInput == 29 && monthInput == 2) {
+            if (yearInput % 4 === 0) {
+                leap_day = daysInput
+                leap_month = monthInput
                 console.log(`month=${leap_month} days=${leap_day}`)
                 // let leap_day=leap_day+1;
             }
@@ -63,7 +92,7 @@ btn.addEventListener("click",  () => {
             }
         }
 
-        else if (inputMonth.value == i && inputDays.value <= loop_days.value) {
+        else if (monthInput == i && daysInput <= loop_days.value) {
             console.log("proper month and days")
         }
 
@@ -76,7 +105,7 @@ btn.addEventListener("click",  () => {
         }
 
     }
-    else if (inputMonth.value === "") {
+    else if (monthInput === "") {
         console.log("blank 2")
         error2.style.display = "block"
         error2.innerText = "This field is required"
@@ -94,7 +123,7 @@ btn.addEventListener("click",  () => {
         if_error = 1
     }
 
-    if (inputYear.value === "") {
+    if (yearInput === "") {
         console.log("blank 3")
         error3.style.display = "block"
         error3.innerText = "This field is required"
@@ -102,8 +131,8 @@ btn.addEventListener("click",  () => {
         inputYear.style.border = "1px solid red"
         if_error = 1
     }
-    else if (inputYear.value <= year) {
-        console.log("year", inputYear.value)
+    else if (yearInput <= year) {
+        console.log("year", yearInput)
     }
     else {
         error3.style.display = "block"
@@ -116,15 +145,15 @@ btn.addEventListener("click",  () => {
     let month_sum
     if (if_error == 0) {
 
-        let days_sum = loop_days.value - inputDays.value + (now.getDate() - 1)
+        let days_sum = loop_days.value - daysInput + (now.getDate() - 1)
 
-        if (inputMonth.value <= now.getMonth()) {
-            month_sum = now.getMonth() - inputMonth.value
-            yr_sum = year - inputYear.value
+        if (monthInput <= now.getMonth()) {
+            month_sum = now.getMonth() - monthInput
+            yr_sum = year - yearInput
         }
         else {
-            month_sum = (12 - inputMonth.value) + now.getMonth()
-            yr_sum = (year - inputYear.value) - 1
+            month_sum = (12 - monthInput) + now.getMonth()
+            yr_sum = (year - yearInput) - 1
         }
 
         if (days_sum >= loop_days.value) {
@@ -135,12 +164,12 @@ btn.addEventListener("click",  () => {
             month_sum = month_sum + 1;
         }
 
-        if (inputDays.value == "" || inputMonth.value == "" || inputYear.value == "") {
+        if (daysInput == "" || monthInput == "" || yearInput == "") {
             cal_yr.innerText = "- -";
             cal_mn.innerText = "- -";
             cal_ds.innerText = "- -";
         }
-        else if (inputDays.value == 29 && inputMonth.value == 2 && inputYear.value % 4 == 0) {
+        else if (daysInput == 29 && monthInput == 2 && yearInput % 4 == 0) {
             cal_yr.innerText = yr_sum;
             cal_mn.innerText = leap_month;
             cal_ds.innerText = days_sum + 2;
